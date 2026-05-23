@@ -1,0 +1,30 @@
+-- This is a simple File which contains a program for house price prediction
+
+-- Here I have used Linear Regression and XGBRegressor model to predict the price and find out that XGBRegressor performs best 
+
+-- At first accuracy of the program for both model were low then we have added two Features Manually
+         1. Price per Unit Area
+         2. Total No of romms
+      This both has helped to increase accuracy by approx 25 to 30 percent
+
+-- I have also used here Hyperparameter Tuning for XGBRegressor using GridSearchCV which takes 
+         1. grid : parameters
+         2. pipeline or model 
+         3. cv : No of folds
+         4. scoring neg_mean_squared_error 
+      This Gives best parameter from the set of parameter that we have given in grid_params
+
+-- I have Separated the Columns containing Categorical and Numerical Values using select_dtypes()
+
+-- I have created two separate pipeline for categorical and Numerical Values which includes imputer and Normailzation
+         1. Numerical - StandardScaler, strategy=mean for imputer
+         2. Categorical - OneHotEncoding, strategy=most_frequent
+
+-- I have used Column Transformer from compose Library to make run Numerical_pipeline for data with Numericals columns and Categorical_pipeline for data with 
+   Categorical Columns
+
+-- SimpleImputer fills missing  values with another value based on strategy 
+
+-- To separate x and y I have drop prices column from table and stored in x (axis = 1)
+
+
